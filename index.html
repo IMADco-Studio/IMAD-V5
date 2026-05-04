@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Pro Automator | Cyber Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="glass-container">
+        <header>
+            <div class="logo">
+                <span class="cyber-icon">💀</span>
+                <h1>FB PRO <span class="accent">AUTOMATOR</span></h1>
+            </div>
+            <p class="subtitle">Cyber-Standard Automation Engine</p>
+        </header>
+
+        <section class="controls">
+            <div class="row">
+                <div class="input-group">
+                    <label for="email">FB Email / Mobile</label>
+                    <input type="text" id="email" placeholder="example@mail.com">
+                </div>
+                <div class="input-group">
+                    <label for="password">FB Password</label>
+                    <input type="password" id="password" placeholder="••••••••">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-group">
+                    <label for="postId">Target Post ID</label>
+                    <input type="text" id="postId" placeholder="100064567891234">
+                </div>
+                <div class="input-group">
+                    <label for="minDelay">Min Delay (s)</label>
+                    <input type="number" id="minDelay" value="15">
+                </div>
+                <div class="input-group">
+                    <label for="maxDelay">Max Delay (s)</label>
+                    <input type="number" id="maxDelay" value="45">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="comments">Comments (one per line)</label>
+                <textarea id="comments" placeholder="Nice post!&#10;Keep it up!&#10;Wow!"></textarea>
+            </div>
+
+            <div class="button-group">
+                <button id="validateBtn" class="secondary">Verify Cookies</button>
+                <button id="startBtn" class="primary">Initialize Bot</button>
+            </div>
+        </section>
+
+        <section class="terminal-logs">
+            <div class="terminal-header">
+                <span>SYSTEM LOGS</span>
+                <span class="status-dot"></span>
+            </div>
+            <div id="logOutput" class="log-content">
+                <p class="system-msg">> System ready. Awaiting initialization...</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

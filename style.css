@@ -1,0 +1,219 @@
+:root {
+    --primary: #00f2ff;
+    --primary-glow: rgba(0, 242, 255, 0.5);
+    --secondary: #7000ff;
+    --bg-dark: #050505;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text: #ffffff;
+    --text-dim: #a0a0a0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Animated Background Blobs */
+.background-blobs {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: blur(80px);
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.4;
+    animation: move 20s infinite alternate;
+}
+
+.blob-1 { width: 400px; height: 400px; background: var(--primary); top: -100px; left: -100px; }
+.blob-2 { width: 500px; height: 500px; background: var(--secondary); bottom: -150px; right: -150px; }
+.blob-3 { width: 300px; height: 300px; background: #ff0077; top: 40%; left: 60%; }
+
+@keyframes move {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(100px, 50px) scale(1.1); }
+}
+
+/* Glassmorphism Container */
+.glass-container {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    width: 900px;
+    max-width: 95vw;
+    padding: 40px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+header {
+    grid-column: span 2;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.accent {
+    color: var(--primary);
+    text-shadow: 0 0 20px var(--primary-glow);
+}
+
+.subtitle {
+    color: var(--text-dim);
+    margin-top: 5px;
+    font-weight: 300;
+}
+
+/* Form Styles */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 0.85rem;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+input, textarea {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 12px 16px;
+    color: white;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.07);
+}
+
+textarea#cookies { height: 80px; font-size: 0.8rem; }
+textarea#comments { height: 120px; }
+
+.row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 15px;
+}
+
+/* Buttons */
+.button-group {
+    display: flex;
+    gap: 15px;
+}
+
+button {
+    flex: 1;
+    padding: 15px;
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button.primary {
+    background: var(--primary);
+    color: black;
+    box-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
+}
+
+button.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 30px rgba(0, 242, 255, 0.5);
+}
+
+button.secondary {
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+}
+
+button.secondary:hover {
+    background: rgba(0, 242, 255, 0.1);
+}
+
+/* Terminal Logs */
+.terminal-logs {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-header {
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--glass-border);
+    font-size: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-dim);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #00ff00;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00ff00;
+}
+
+.log-content {
+    padding: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.85rem;
+    overflow-y: auto;
+    max-height: 400px;
+}
+
+.log-content p { margin-bottom: 8px; }
+.system-msg { color: #888; }
+.success-msg { color: #00ff00; }
+.error-msg { color: #ff0044; }
+.info-msg { color: var(--primary); }
