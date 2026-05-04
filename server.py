@@ -5,10 +5,26 @@ import uvicorn
 import threading
 import random
 import time
+import os
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from core import FacebookDirectAutomator
 from utils import Logger
 
 app = FastAPI(title="Professional Facebook Automation API")
+
+# Serve UI files
+@app.get("/")
+async def read_index():
+    return FileResponse("index.html")
+
+@app.get("/style.css")
+async def read_css():
+    return FileResponse("style.css")
+
+@app.get("/app.js")
+async def read_js():
+    return FileResponse("app.js")
 
 # Store active bot instances
 active_bots = {}
